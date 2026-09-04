@@ -3,38 +3,31 @@
 *Created: 2026-09-04 | Purpose: long-term reference index for the Android security research corpus*
 
 ## Skill (master document)
-- `/home/lzrk/.hermes/skills/android-security-wizard/SKILL.md` (80KB) — the working skill. 15 sections, 4 pillars, integrated pipeline, quick reference, learning path, sources, operational notes. This is the entry point for future sessions.
+- `/home/lzrk/.hermes/skills/android-security-wizard/SKILL.md` (83KB) — the working skill. 15 sections, 4 pillars, integrated pipeline, quick reference, learning path, sources, operational notes. This is the entry point for future sessions.
 
 ## Structured research files (on disk, in /home/lzrk/)
 | File | Lines | KB | Purpose |
 |------|-------|-----|---------|
-- adb-shizuku-primer.md | 457 | 23.8 | ADB + Shizuku fundamentals, wireless debugging, privilege model
-- shizuku-adb-workflows.md | 388 | ~19.5 | 30 concrete commands, privilege tier table, decision tree
-- android-safe-storage-encryption-sources.md | 39 | 3.7 | Source URLs backing safe-storage-encryption.md
-- android-safe-storage-encryption.md | 30 | 3.6 | AES-256-GCM key derivation + IV handling replace pattern
-- android-malware-detection-research.md | 570 | 24.8 | 6-phase on-device triage, 9 tools, YARA sources, stalkerware IOCs
-- android-malware-detection-tools-survey.md | 309 | ~15 | Tool survey (MobSF, Androguard, APKLeaks, MARA, Androwarn, MVT, Pithus, Androl4b)
-- android-exploit-identification.md | 635 | 31.6 | 5-phase isolate-and-identify workflow, CVE reference card, drozer+Ghost fit, saelo replacement
-- android-kernel-exploit-lab-setup.md | 365 | ~15 | QEMU + vulnerable kernel + GDB walkthrough for CVE-2019-2215
-- android-commercial-protector-bypass.md | 423 | 39.1 | Commercial protector landscape: DexGuard/Bangcle/Liuling/DarkGuard/APKProtect/ARPSolo/LLVM/custom; bypass approaches per protector; manual unpacking methodology; detection/identification; case studies + 8 hard problems; 9-step practical workflow.
-|| android-14-15-16-security-changes.md | 248 | 20.8 | Android 14/15/16 security changes by feature area, cross-version trend analysis, practical impact on Red Team/malware/pentest. Includes Android 16+ Advanced Protection Mode / Intrusion Logging (May 2026).
-|| android-native-re-workflow.md | 493 | 19.9 | Native .so RE workflow: tools (Ghidra/IDA/JEB/radare2/angr), JNI patterns, step-by-step commands, malware native-library patterns, anti-analysis bypass notes, Frida native hooking patterns with JS examples.
-|| shizuku-exploitation-research.md | 324 | 27.2 | Shizuku attack surface: 5 privilege escalation/abuse scenarios, UserService exploitation methodology, malicious client crafting, 37-item defensive audit checklist.
-|| android-re-frida-pipeline.md | 191 | 15.6 | RE/Frida tooling survey across multiple search threads.
-|| android-exploit-chains.md | 202 | 14.8 | Full exploit chain analysis: Project Zero Pixel 9 AWDL/Dolby 0-click chain, in-the-wild post-exploitation campaigns, Chrome RIDL sandbox escape, Amnesty/Citizen Lab spyware forensics, Oversecured app-layer vulns, Google Android OffSec Binder CVE, GitHub Fugitive-in-Java chain, Cyfirma GhostShell/Crocodile Gang.
-|| android-malware-c2-infra-analysis.md | 123 | 7.5 | C2 infrastructure analysis process: DNS/WHOIS/passive DNS/cert transparency/WEBINT/lateral movement/fraud/attribution.
-|| android-kernel-exploit-dev-methodology.md | 777 | 54.4 | Advanced kernel exploit dev: CVE-to-exploit, KASLR defeat, heap Feng Shui/grooming on ARM64, arbitrary r/w primitives, Android mitigations (KASAN/KCFG/CFI/PAN/STATIC_USERMODE_HELPER/KPTI/module signing), ARM64 specifics (PAC, calling conventions), cred manipulation, case studies (2023-2026), tooling, robust exploit engineering, CVE reference table.
-|| android-malware-attribution-campaign-tracking.md | 967 | 65.4 | Android malware attribution & campaign tracking: sample-to-campaign linking, infrastructure tracking, financial fraud tracing, threat actor attribution, campaign timeline, family classification, tools, case study references, open-source workflow, honest limitations. Section 12 adds 2025-2026 campaign case studies (ClayRat, Arsink, PromptSpy, Albiriox, Zimperium 4 campaigns).
-|| android-protector-walkthroughs.md | 837 | 81.8 | End-to-end unpacking case studies: narrative template, Packed Unpacker (Maddie Stone BH 2020) deep analysis, BRATA/Ghimob/Joker walkthroughs, DexGuard/Bangcle/Liuling-specific walkthroughs with honest gaps, 14-step tool sequence with pivot-points table, where to find more.
-|| android-rooting-methods-deep-dive.md | 418 | 38.6 | Comprehensive rooting reference: taxonomy, bootloader unlock + AVB 2.0, Magisk, KernelSU/APatch, exploit-based rooting historical context, root detection, root hiding cat-and-mouse, what root unlocks for research, risks, practical recommendations, future direction.
-|| android-17-18-security-direction.md | 243 | 21.9 | Android 17 known direction + Android 18 (cut) early security direction. Security trend analysis 14→15→16→17→18, Red Team/malware/pentest impact, adaptation recommendations.
-|| android-safe-storage-encryption.md | 30 | 3.6 | AES-256-GCM key derivation + IV handling replace pattern for Android EncryptedFile, SQLiteDatabase, MasterKey, EncryptedSharedPreferences.
-|| android-malware-c2-infra-analysis-sources.md | 26 | 3.1 | Source URLs backing C2 infrastructure analysis.
-|| android-malware-attribution-campaign-tracking.md | 891 | 58.4 | Android malware attribution & campaign tracking: sample-to-campaign linking, infrastructure tracking (passive DNS/WHOIS/CT logs/hosting patterns/account reuse/lifecycle), financial fraud tracing (money mules/cash-out/crypto/SMS toll fraud/ad fraud), threat actor attribution (TTPs/code reuse/infrastructure overlap/targeting/confidence levels), campaign timeline reconstruction, family classification, tools (VirusTotal/MalwareBazaar/AndroZoo/YARA/ct.sh/WHOIS history/MISP/OpenCTI/OTX), case study references, open-source workflow, honest limitations. |
-|| android-protector-walkthroughs.md | 837 | 81.8 | End-to-end unpacking case studies: narrative template, Packed Unpacker (Maddie Stone BH 2020) deep analysis, BRATA/Ghimob/Joker walkthroughs, DexGuard/Bangcle/Liuling-specific walkthroughs with honest gaps, 14-step tool sequence with pivot-points table, where to find more. |
-|| android-rooting-methods-deep-dive.md | 418 | 38.6 | Comprehensive rooting reference: taxonomy, bootloader unlock + AVB 2.0, Magisk (MagiskSU/Zygisk/DenyList/modules), KernelSU/APatch, exploit-based rooting historical context, root detection (SafetyNet→Play Integrity, software vs hardware-backed, TEE), root hiding cat-and-mouse, what root unlocks for research, risks (OTA/Knox/AVB/bootloops/integrity flags), practical recommendations, future direction.
-- android-17-18-security-direction.md | 243 | 21.9 | Android 17 known direction + Android 18 (cut) early security direction: privacy/storage/permission tightening, per-app language, predictive back, HEIF/USB3 camera, refined intent filters (17); battery/charging visibility, hourly weather, freeze-ended texting glanceable info, back gestures via launcher, auto-verify app purchases, surrounding devices API, 16:10+ displays, battery saver refinements, threads/conversation ranking (18). Security trend analysis 14→15→16→17→18, Red Team/malware/pentest impact, adaptation recommendations. Sources cited with honest uncertainty markers.
-- android-safe-storage-encryption.md | 30 | 3.6 | AES-256-GCM key derivation + IV handling replace pattern for Android EncryptedFile, SQLiteDatabase, MasterKey, EncryptedSharedPreferences. Replace patterns for getFile(), getDatabase(), getSharedPreferences(), commit().
+- adb-shizuku-primer.md | 457 | 23.3 | ADB + Shizuku fundamentals, wireless debugging, privilege model
+- shizuku-adb-workflows.md | 388 | 19.0 | 30 concrete commands, privilege tier table, decision tree
+- android-malware-detection-research.md | 689 | 30.4 | 6-phase on-device triage, 9 tools, YARA sources, stalkerware IOCs
+- android-malware-detection-tools-survey.md | 309 | 23.0 | Tool survey (MobSF, Androguard, APKLeaks, MARA, Androwarn, MVT, Pithus, Androl4b)
+- android-exploit-identification.md | 638 | 31.1 | 5-phase isolate-and-identify workflow, CVE reference card, drozer+Ghost fit
+- android-kernel-exploit-lab-setup.md | 365 | 12.9 | QEMU + vulnerable kernel + GDB walkthrough for CVE-2019-2215
+- android-commercial-protector-bypass.md | 423 | 38.2 | Commercial protector landscape (DexGuard/Bangcle/Liuling/etc.), bypass per protector, manual unpacking methodology
+- android-14-15-16-security-changes.md | 248 | 20.7 | Android 14/15/16 security changes by feature area, trend analysis, Red Team impact. Includes Android 16+ Intrusion Logging (May 2026)
+- android-native-re-workflow.md | 493 | 19.5 | Native .so RE workflow: tools, JNI patterns, step-by-step commands, Frida native hooking
+- shizuku-exploitation-research.md | 324 | 26.5 | Shizuku attack surface: 5 abuse scenarios, UserService exploitation, 37-item audit checklist
+- android-re-frida-pipeline.md | 191 | 15.2 | RE/Frida tooling survey across multiple search threads
+- android-exploit-chains.md | 202 | 14.4 | Full exploit chain analysis: Pixel 9 0-click, post-exploitation campaigns, RIDL escape, spyware forensics
+- android-malware-c2-infra-analysis.md | 123 | 7.3 | C2 infrastructure analysis process: DNS/WHOIS/CT/correlation/attribution
+- android-kernel-exploit-dev-methodology.md | 777 | 53.1 | Advanced kernel exploit dev: KASLR defeat, heap grooming, r/w primitives, mitigations, ARM64, case studies
+- android-malware-attribution-campaign-tracking.md | 967 | 65.4 | Attribution & campaign tracking; Section 12: 2025-26 campaigns (ClayRat, Arsink, PromptSpy, Albiriox, Zimperium-4)
+- android-protector-walkthroughs.md | 837 | 79.9 | End-to-end unpacking case studies: narrative template, Packed Unpacker, BRATA/Ghimob/Joker, DexGuard gaps
+- android-rooting-methods-deep-dive.md | 418 | 37.7 | Rooting taxonomy, Magisk/KernelSU/APatch, root detection/hiding, AVB, risks; legacy sideload methods
+- android-17-18-security-direction.md | 243 | 21.4 | Android 17 + 18 (cut) early security direction, trend analysis, adaptation recommendations
+- android-malware-c2-infra-analysis-sources.md | 26 | 3.1 | Source URLs backing C2 infrastructure analysis
+- android-exploit-chains-sources.md | 49 | 6.0 | Source URLs backing exploit chains analysis
 
 ## Web cache (source pages, /home/lzrk/.hermes/cache/web/)
 ~50+ cached source pages, ~3.9MB total. Key ones:
@@ -89,8 +82,7 @@
 12. C2 infrastructure analysis for Android malware — now covered: android-malware-c2-infra-analysis.md (123 lines) + sources: android-malware-c2-infra-analysis-sources.md (26 lines)
 13. RE/Frida tooling pipeline — now covered: android-re-frida-pipeline.md (191 lines)
 14. On-device malware detection tooling landscape — now covered: android-malware-detection-research.md (689 lines, 6-phase triage) + android-malware-detection-tools-survey.md (309 lines, tool survey)
-15. Safe encrypted storage: path to correctness from vulnerable usage in production traceability — now covered: android-safe-storage-encryption.md (30 lines) + sources: android-safe-storage-encryption-sources.md (39 lines)
-16. Exploit identification workflow — now covered: android-exploit-identification.md (635 lines, 5-phase isolate-and-identify + CVE reference card with CVE-2025-48595 + 124-Jun/215-H1 stats)
-15. Exploit identification workflow — now covered: android-exploit-identification.md
+15. Safe encrypted storage (Android EncryptedFile/EncryptedSharedPreferences replace patterns) — flagged but NOT YET WRITTEN (references exist in no file; do not treat as covered)
+16. Exploit identification workflow — now covered: android-exploit-identification.md (638 lines, 5-phase isolate-and-identify + CVE reference card with CVE-2025-48595 + 124-Jun/215-H1 stats)
 
 *End of index.*

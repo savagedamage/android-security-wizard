@@ -1,8 +1,8 @@
 # Android Security Wizard
 
-A synthesized Android security research corpus: one integrated skill document plus 21 deep companion references covering the full Android security assessment pipeline — static analysis, dynamic instrumentation (Frida/Shizuku), exploit identification, malware analysis, commercial protector bypass, kernel exploit development, and threat attribution.
+A synthesized Android security research corpus: one integrated skill document plus 20 deep companion references covering the full Android security assessment pipeline — static analysis, dynamic instrumentation (Frida/Shizuku), exploit identification, malware analysis, commercial protector bypass, kernel exploit development, and threat attribution.
 
-**Grand total: ~8,946 lines / ~661 KB across 22 files** (SKILL.md + 21 companions). Last updated: 2026-09-04.
+**Grand total: 8,852 lines / 632 KB across 21 corpus files** (SKILL.md + 20 companions). Last updated: 2026-09-04.
 
 ---
 
@@ -47,9 +47,7 @@ The corpus was produced by the 2026-09-04 research wave that targeted the bigges
 | `android-exploit-chains.md` | 202 | 15 KB | Full chains: Pixel 9 AWDL/Dolby 0-click, RIDL sandbox escape, spyware forensics, Fugitive-in-Java |
 | `android-re-frida-pipeline.md` | 191 | 16 KB | RE/Frida tooling survey across search threads |
 | `android-malware-c2-infra-analysis.md` | 123 | 8 KB | C2 infrastructure analysis process: DNS/WHOIS/CT/correlation/attribution |
-| `android-safe-storage-encryption.md` | 30 | 4 KB | AES-256-GCM key derivation + IV handling replacement patterns (EncryptedFile/SQLite) |
 | `android-malware-c2-infra-analysis-sources.md` | 26 | 3 KB | Source URLs backing C2 infrastructure analysis |
-| `android-safe-storage-encryption-sources.md` | 39 | 4 KB | Source URLs backing safe-storage-encryption.md |
 | `android-exploit-chains-sources.md` | 49 | 6 KB | Source URLs backing exploit chains analysis |
 
 *(Sizes approximate; see `android-security-wizard-archive-index.md` in the corpus for the authoritative index.)*
@@ -70,7 +68,6 @@ The corpus was produced by the 2026-09-04 research wave that targeted the bigges
 12. ✅ C2 infrastructure analysis — `android-malware-c2-infra-analysis.md`
 13. ✅ RE/Frida tooling pipeline — `android-re-frida-pipeline.md`
 14. ✅ On-device malware detection triage — `android-malware-detection-research.md` + tools survey
-15. ✅ Safe encrypted storage patterns — `android-safe-storage-encryption.md`
 16. ✅ Exploit identification workflow — `android-exploit-identification.md`
 
 ## Quick start
@@ -95,4 +92,4 @@ The corpus was produced by the 2026-09-04 research wave that targeted the bigges
 
 ---
 
-*Corpus: 22 files / ~8,946 lines / ~661 KB. Last updated 2026-09-04.*
+*Corpus: 21 files / ~8,852 lines / ~632 KB. Last updated 2026-09-04.*
