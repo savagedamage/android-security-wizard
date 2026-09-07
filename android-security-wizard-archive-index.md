@@ -28,6 +28,7 @@
 - android-17-18-security-direction.md | 243 | 21.4 | Android 17 + 18 (cut) early security direction, trend analysis, adaptation recommendations
 - android-malware-c2-infra-analysis-sources.md | 26 | 3.1 | Source URLs backing C2 infrastructure analysis
 - android-exploit-chains-sources.md | 49 | 6.0 | Source URLs backing exploit chains analysis
+- android-safe-encrypted-storage.md | 213 | 12.0 | Android Keystore, AEAD envelope encryption, backup/restore, key invalidation, and migration from deprecated AndroidX crypto wrappers
 
 ## Web cache (source pages, /home/lzrk/.hermes/cache/web/)
 ~50+ cached source pages, ~3.9MB total. Key ones:
@@ -82,7 +83,7 @@
 12. C2 infrastructure analysis for Android malware — now covered: android-malware-c2-infra-analysis.md (123 lines) + sources: android-malware-c2-infra-analysis-sources.md (26 lines)
 13. RE/Frida tooling pipeline — now covered: android-re-frida-pipeline.md (191 lines)
 14. On-device malware detection tooling landscape — now covered: android-malware-detection-research.md (689 lines, 6-phase triage) + android-malware-detection-tools-survey.md (309 lines, tool survey)
-15. Safe encrypted storage (Android EncryptedFile/EncryptedSharedPreferences replace patterns) — flagged but NOT YET WRITTEN (references exist in no file; do not treat as covered)
+15. Safe encrypted storage (Android Keystore, AEAD envelope patterns, backup/restore, and migration from deprecated AndroidX crypto wrappers) — now covered: android-safe-encrypted-storage.md
 16. Exploit identification workflow — now covered: android-exploit-identification.md (638 lines, 5-phase isolate-and-identify + CVE reference card with CVE-2025-48595 + 124-Jun/215-H1 stats)
 
 *End of index.*

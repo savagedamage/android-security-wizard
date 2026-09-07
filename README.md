@@ -1,8 +1,8 @@
 # Android Security Wizard
 
-A synthesized Android security research corpus: one integrated skill document plus 20 deep companion references covering the full Android security assessment pipeline — static analysis, dynamic instrumentation (Frida/Shizuku), exploit identification, malware analysis, commercial protector bypass, kernel exploit development, and threat attribution.
+A synthesized Android security research corpus: one integrated skill document plus 21 deep companion references covering the full Android security assessment pipeline — static analysis, dynamic instrumentation (Frida/Shizuku), exploit identification, malware analysis, commercial protector bypass, kernel exploit development, safe encrypted storage, and threat attribution.
 
-**Grand total: 8,852 lines / 632 KB across 21 corpus files** (SKILL.md + 20 companions). Last updated: 2026-09-04.
+**Grand total: 9,068 lines / ~676 KB across 22 research documents** (SKILL.md + 21 companions). Last updated: 2026-09-05.
 
 ---
 
@@ -49,6 +49,7 @@ The corpus was produced by the 2026-09-04 research wave that targeted the bigges
 | `android-malware-c2-infra-analysis.md` | 123 | 8 KB | C2 infrastructure analysis process: DNS/WHOIS/CT/correlation/attribution |
 | `android-malware-c2-infra-analysis-sources.md` | 26 | 3 KB | Source URLs backing C2 infrastructure analysis |
 | `android-exploit-chains-sources.md` | 49 | 6 KB | Source URLs backing exploit chains analysis |
+| `android-safe-encrypted-storage.md` | 213 | 12 KB | Keystore-backed AEAD, backup/restore, key invalidation, and migration guidance |
 
 *(Sizes approximate; see `android-security-wizard-archive-index.md` in the corpus for the authoritative index.)*
 
@@ -92,4 +93,4 @@ The corpus was produced by the 2026-09-04 research wave that targeted the bigges
 
 ---
 
-*Corpus: 21 files / ~8,852 lines / ~632 KB. Last updated 2026-09-04.*
+*Corpus: 22 research documents (SKILL.md plus 21 companions; README and archive index excluded), 9,068 lines / ~676 KB. Last updated 2026-09-05.*

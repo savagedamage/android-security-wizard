@@ -1,0 +1,29 @@
+# Home directory safety .gitignore
+#
+# /home/lzrk IS the working tree of the PUBLIC repo savagedamage/android-security-wizard.
+# Everything in this home directory that is not the corpus would leak on `git add -A`
+# (.bash_history, .claude/.codex/.config/.ssh, .hermes infra incl. auth.json/state.db,
+# work folders, evidence dirs). Strategy: IGNORE EVERYTHING, then whitelist only the
+# corpus paths this repo tracks. New research notes live elsewhere and are backed up;
+# they are deliberately NOT part of this public repo.
+#
+# If you add a tracked corpus file that does not match the whitelist below, add its
+# negation here FIRST, then `git add` it explicitly. Never remove the `/*` baseline.
+
+# Ignore everything at the repo root (including dotfiles)
+/*
+
+# ...except the repo's own guard and corpus files
+!/.gitignore
+!/README.md
+!/android-*.md
+!/shizuku-*.md
+!/adb-shizuku-primer.md
+
+# .hermes contains Hermes infra (auth.json, .env, state.db, logs, sessions, kanban,
+# profiles, cron) — never publish. Only the mirrored corpus skill is part of this repo.
+!/.hermes/
+/.hermes/*
+!/.hermes/skills/
+/.hermes/skills/*
+!/.hermes/skills/android-security-wizard/

@@ -1,3 +1,15 @@
+---
+name: android-security-wizard
+description: "Use when doing Android security: ADB/Shizuku access, malware hunting, reverse engineering, kernel exploitation, and instrumentation."
+version: 1.0.0
+author: savagedamage
+license: MIT
+platforms: [linux]
+metadata:
+  hermes:
+    tags: [Android, Security, ADB, Shizuku, Reverse Engineering, Malware, Forensics, Frida, Exploitation, Instrumentation]
+    category: security
+---
 
 # Android Security Wizard — Skill
 
@@ -75,7 +87,7 @@ Phase 4 — PoC correlation: sfewer-r7/pocindex (82k PoCs), GitHub by CVE ID, Ex
 
 Phase 5 — Attribution: CVE → exploit chain structure → Google TAG/Project Zero writeups → APK/sample comparison → network indicators → acknowledge limitations (clean exploits leave minimal traces, SELinux state matters, attribution to specific actor usually needs more than device artifacts).
 
-**Kernel exploit lab (reproducible):** [android-kernel-exploit-lab-setup.md](android-kernel-exploit-lab-setup.md) on disk — full QEMU + vulnerable kernel + GDB walkthrough for CVE-2019-2215. 0xbinder lab (43 stars, active Apr 2025) + cloudfuzz.github.io/workshop. Same core flow: shallow repo sync of `q-goldfish-android-goldfish-4.14-dev` → apply patch → fix DTC lexer → build x86_64 KASAN kernel → create AVD (android-29, x86_64) → launch emulator with `-kernel bzImage` + optionally `-qemu -s -S` → GDB attach on :1234 → `root-by-pid <pid>`.
+**Kernel exploit lab (reproducible):** [android-kernel-exploit-lab-setup.md](../../../android-kernel-exploit-lab-setup.md) on disk — full QEMU + vulnerable kernel + GDB walkthrough for CVE-2019-2215. 0xbinder lab (43 stars, active Apr 2025) + cloudfuzz.github.io/workshop. Same core flow: shallow repo sync of `q-goldfish-android-goldfish-4.14-dev` → apply patch → fix DTC lexer → build x86_64 KASAN kernel → create AVD (android-29, x86_64) → launch emulator with `-kernel bzImage` + optionally `-qemu -s -S` → GDB attach on :1234 → `root-by-pid <pid>`.
 
 ---
 
@@ -520,6 +532,8 @@ frida -U -f com.target.app -l android-disable-certificate-pinning.js
 
 ## 11. What's Covered in the Extended Corpus (companion files)
 
+**Safe encrypted storage:** [android-safe-encrypted-storage.md](../../../android-safe-encrypted-storage.md) covers Android Keystore, authenticated envelope encryption, backup/restore, key invalidation, and migration away from deprecated `EncryptedFile`/`EncryptedSharedPreferences`.
+
 The skill above is the integrated operational reference. The following companion research files on disk go deeper on specific topics and are referenced throughout. Load them with `read_file` when you need the detailed version.
 
 | File | Lines | Size | Key content |
@@ -642,11 +656,12 @@ These files were produced by the 2026-09-04 delegation wave that targeted the fo
 - [HackTricks Shizuku page](https://hacktricks.wiki/en/mobile-pentesting/android-app-pentesting/shizuku-privileged-api.html) — Shizuku security model, UserService, threat implications
 - [ReverseLabs DCL blog](https://reverselabs.dev/blog/dynamic-code-loading-android) — DCL detection, BRATA/Ghimob/Joker case studies, Frida hook
 - [Talsec Frida article](https://docs.talsec.app/appsec-articles/articles/hook-hack-defend-fridas-impact-on-mobile-security-and-how-to-fight-back) — Frida detection, RASP, bypass techniques
-- [0xbinder lab docs](android-kernel-exploit-lab-setup.md) — full QEMU + kernel + GDB walkthrough on disk
-- [Android kernel exploit identification](android-exploit-identification.md) — 5-phase isolate-and-identify workflow on disk
-- [Android malware detection research](android-malware-detection-research.md) — 6-phase on-device triage + tool survey on disk
-- [Shizuku/ADB workflows](shizuku-adb-workflows.md) — 30 commands + privilege tier table on disk
-- [ADB/Shizuku primer](adb-shizuku-primer.md) — fundamentals + wireless debugging + privilege model on disk
+- [0xbinder lab docs](../../../android-kernel-exploit-lab-setup.md) — full QEMU + kernel + GDB walkthrough on disk
+- [Android kernel exploit identification](../../../android-exploit-identification.md) — 5-phase isolate-and-identify workflow on disk
+- [Android malware detection research](../../../android-malware-detection-research.md) — 6-phase on-device triage + tool survey on disk
+- [Shizuku/ADB workflows](../../../shizuku-adb-workflows.md) — 30 commands + privilege tier table on disk
+- [ADB/Shizuku primer](../../../adb-shizuku-primer.md) — fundamentals + wireless debugging + privilege model on disk
+- [Safe encrypted storage](../../../android-safe-encrypted-storage.md) — Keystore-backed AEAD, envelope formats, backup/restore, and migration guidance on disk
 - [httptoolkit blog](https://httptoolkit.com/blog/frida-mobile-interception-funding/) — Frida interception funding, EU NGI Zero, MITM methodology
 - [Frida CodeShare universal bypass](https://codeshare.frida.re/@ssecurityy/universal-robust-advanced-root--ssl-pinning-bypass/) — root + SSL pinning + debugger + root hide + emulator + obfuscated method hooks
 - [Kaspersky Q2 2026 mobile report](https://securelist.com/malware-report-q2-2026-mobile-statistics/120948/) — current threat landscape
@@ -682,4 +697,4 @@ These files were produced by the 2026-09-04 delegation wave that targeted the fo
 
 ---
 
-*Corpus on disk: 18 structured companion files (7,094 lines / 492 KB), SKILL.md (686 lines / 83 KB) — grand total 7,780 lines / 575 KB across the android-security-wizard corpus. Rooting methods and Android 17/18 direction added 2026-09-04. Fresh-lead malware/security/tools integrated 2026-09-04: ClayRat, WindRelay, PromptSpy, Arsink, Albiriox, Zimperium-4 campaigns, Android 16+ Intrusion Logging, AutoSecT, Djini.ai, appsec.fyi, OWASP MASTG update, CVE-2025-48595, 2026 Security Paper, 124-Jun/215-H1 stats, 5 case-study sections. No 2nd wave needed for security/tools (stable tooling landscape, snippet-level research with no high-value unfetched sources remaining). §11 table integrity pass 2026-09-04: phantom file references removed, counts verified against disk, all rows single-pipe. Next wave topics: see archive index "Next wave topics" section or flag new gaps.*
+*Corpus on disk: 21 structured companion files, SKILL.md, and the archive index. Safe encrypted storage was added 2026-09-05 to close the final planned coverage gap. Counts are maintained in the repository README and archive index; refresh them after future edits. Next wave topics: see archive index "Next wave topics" section or flag new gaps.*
