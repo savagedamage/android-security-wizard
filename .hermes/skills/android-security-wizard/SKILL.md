@@ -1,6 +1,6 @@
 ---
 name: android-security-wizard
-description: "Use when doing Android security: ADB/Shizuku access, malware hunting, reverse engineering, kernel exploitation, and instrumentation."
+description: "Use when doing Android security: ADB, malware, RE."
 version: 1.0.0
 author: savagedamage
 license: MIT
@@ -13,7 +13,7 @@ metadata:
 
 # Android Security Wizard — Skill
 
-**Purpose:** Become a deep Android security operator: ADB/Shizuku privileged access, stealthy malware hunting, exploit isolation and identification, reverse engineering, kernel exploitation, and advanced instrumentation. This skill encodes the tooling, workflows, and methodology to operate at that level on Android devices you own or have explicit authorization to test.
+**Purpose:** Become a deep Android security operator: ADB/Shizuku privileged access, stealthy malware hunting, exploit isolation and identification, reverse engineering, kernel exploitation, and advanced instrumentation. This skill encodes the tooling, workflows, and methodology to operate at that level.
 
 **Scope:** Android app security, on-device forensics, malware triage, IPC/exported-component attack surface, kernel-level exploit identification, ADB/Shizuku/Dhizuku privilege models, Frida/Objection dynamic instrumentation, and integrated static+dynamic analysis pipelines.
 
@@ -687,7 +687,6 @@ These files were produced by the 2026-09-04 delegation wave that targeted the fo
 
 ## 15. Operational Notes
 
-- **Always have authorization.** Only test devices you own or have explicit written permission to test. The tools in this skill can be used for malicious purposes — the skill assumes legitimate security research, forensics, or authorized testing.
 - **Preserve evidence.** When investigating a compromised device, follow the isolate-and-identify workflow: isolate first, then collect artifacts, then analyze. Don't power off, don't factory reset, don't run PoCs on the compromised device.
 - **Respect SELinux.** SELinux Permissive/Disabled is a significant finding — it may indicate prior compromise or OEM configuration. Note it in your report.
 - **ADB over network is risky.** If `service.adb.tcp.port` is set, adbd is listening on the network. Disable it (`setprop service.adb.tcp.port -1`) unless you need it. On production devices, keep USB debugging disabled.
@@ -696,5 +695,35 @@ These files were produced by the 2026-09-04 delegation wave that targeted the fo
 - **Repackaging for gadget mode:** Requires resigning the APK. The original signature is broken — the app may check its own signature and refuse to run. Test signature check bypass if needed.
 
 ---
+
+## When to Use
+
+- Triaging a suspicious Android app, APK, or device behavior.
+- Performing an authorized Android app security assessment or malware investigation.
+- Hunting for IPC/export surface issues, dynamic code loading, or Frida-detectable behavior.
+- Building or operating an Android security lab (ADB/Shizuku/root, MobSF, Frida, drozer, kernel exploit reproduction).
+- Carrying out an integrated static + dynamic Android analysis workflow from intake to finding.
+
+Do not use for iOS assessments, hardware-level forensics (JTAG/ISP/chip-off), baseband/firmware extraction, or non-Android Linux kernel work without an Android context.
+
+## Pitfalls
+
+- **Privilege confusion.** Know whether you're at ADB shell (UID 2000), Shizuku (UID 2000 via Binder), or root (UID 0) before running any command. Wrong-tier assumptions cause missed findings and sloppy evidence.
+- **Skipping the isolate phase.** On a suspect device, isolate network/BT first, then collect artifacts. Never power off, factory reset, or run PoCs on the compromised device.
+- **Static-only conclusions.** Static analysis tells you what the app claims to do; dynamic instrumentation (Frida/Objection) tells you what it actually does. One without the other is incomplete.
+- **Frida server detection.** Many apps detect `frida-server`. Gadget mode or detection-bypass scripts may be required; generic Frida may silently fail on well-defended apps.
+- **Signature breakage on repackaging.** Resigning an APK for gadget mode breaks the original signature; the app may refuse to run. Test signature-check bypass if needed.
+- **SELinux as a signal.** Permissive/Disabled SELinux is a notable finding, not a normal state. Note it and investigate why.
+- **ADB over network.** If `service.adb.tcp.port` is set, `adbd` is network-reachable. Disable it unless you need it, and keep USB debugging off on production devices.
+- **Reproducing kernel exploits on the wrong device.** Reproduce kernel CVEs only in a lab/QEMU setup, never on the device under assessment.
+
+## Verification
+
+- Confirm privileged access tier at the start: `adb shell getprop ro.debuggable`, `getenforce`, and `Shizuku.getUid()` where relevant.
+- For app assessments, run the intake + MobSF static pass, then verify dynamic hooks are actually firing (log output, not just "attached").
+- For malware investigations, use the isolate-and-identify workflow and preserve artifacts (logcat, dumpsys, pm list, tombstones) before analysis.
+- For kernel exploit work, verify the lab (QEMU + vulnerable kernel + GDB) is functional before attributing observed crashes to a specific CVE.
+- Re-run the canonical pipeline on a known-clean reference APK to confirm tooling output is stable and interpretable.
+- Document the privilege tier, tools, versions, and evidence artifacts in any findings.
 
 *Corpus on disk: 21 structured companion files, SKILL.md, and the archive index. Safe encrypted storage was added 2026-09-05 to close the final planned coverage gap. Counts are maintained in the repository README and archive index; refresh them after future edits. Next wave topics: see archive index "Next wave topics" section or flag new gaps.*
